@@ -6,7 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { format } from 'date-fns';
 const Footer = () => {
   return (
-    <Box sx={{display : "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "primary.main", color: "white"}} padding={"20px"}>
+    <Box sx={{display : "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#171d14", color: "white"}} padding={"20px"}>
       <Typography variant='h6' >
         
           Footer 

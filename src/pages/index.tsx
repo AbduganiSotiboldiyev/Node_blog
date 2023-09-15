@@ -116,16 +116,13 @@ import Head from 'next/head'
 import React from 'react'
 import {Button} from '@mui/material'
 import Layout from '@/layout/layout'
+import { Hero } from '@/components'
 
 const Index = () => {
   return (
     <Layout>
-    <Head>
-      <title>
-        Abdu.Dev app
-      </title>
-    </Head>
-    <Button variant='contained'> Click</Button>
+   
+    <Hero/>
     </Layout>
   )
 }
