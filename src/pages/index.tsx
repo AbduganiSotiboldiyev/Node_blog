@@ -114,15 +114,19 @@
 // }
 import Head from 'next/head'
 import React from 'react'
-import {Button} from '@mui/material'
+import {Box, Button} from '@mui/material'
 import Layout from '@/layout/layout'
-import { Hero } from '@/components'
+import { Hero, Sidebar,Content } from '@/components'
+
 
 const Index = () => {
   return (
     <Layout>
-   
-    <Hero/>
+      <Hero/>
+      <Box sx={{display: 'flex', gap: "20px " , padding : "20px"}}>
+        <Sidebar/>
+        <Content />
+      </Box>
     </Layout>
   )
 }
