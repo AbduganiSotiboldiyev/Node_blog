@@ -117,18 +117,43 @@ import React from 'react'
 import {Box, Button} from '@mui/material'
 import Layout from '@/layout/layout'
 import { Hero, Sidebar,Content } from '@/components'
+import { BlogService } from '@/components/services/blog.service'
+import { GetServerSideProps } from 'next'
+import { BlogsType } from '@/components/interface/blogs.interface'
+import { CategoryType } from '@/components/interface/category.interface'
 
 
-const Index = () => {
+const Index = ({blogs,latestBlogs ,categories}: HomePageProps) => {
+  
+
   return (
     <Layout>
-      <Hero/>
+      <Hero blogs={blogs}/>
       <Box sx={{display: 'flex', flexDirection:{xs: "column",sm :"row"}, gap: "20px " , padding : "20px"}}>
-        <Sidebar/>
-        <Content />
+        <Sidebar latestBlogs= {latestBlogs} categories={categories}/>
+        <Content blogs={blogs}/>
       </Box>
     </Layout>
   )
 }
 
 export default Index
+
+export const getServerSideProps : GetServerSideProps<HomePageProps> =  async () => {
+  const blogs = await BlogService.getAllBlogs()
+  const latestBlogs = await BlogService.getLatestBlogs()
+  const categories = await BlogService.getCategories()
+  return {
+    props : {
+      blogs,
+      latestBlogs,
+      categories,
+    }
+  }
+ }
+
+ interface HomePageProps {
+  blogs: BlogsType[],
+  latestBlogs : BlogsType[],
+  categories: CategoryType[],
+ }
