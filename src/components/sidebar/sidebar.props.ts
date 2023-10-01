@@ -3,5 +3,5 @@ import { CategoryType } from "../interface/category.interface";
 
 export interface SidebarProps {
     latestBlogs : BlogsType[],
-    getCategories : CategoryType[],
+    categories : CategoryType[],
 }

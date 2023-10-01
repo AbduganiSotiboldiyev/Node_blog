@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { navItems } from '@/config/constants';
 import CloseIcon from '@mui/icons-material/Close';
 import QrCode2TwoToneIcon from '@mui/icons-material/QrCode2TwoTone';
+import { useRouter } from 'next/router';
 
 interface Props {
 
@@ -20,10 +21,12 @@ const Navbar = ({window} : Props) => {
     setMobileOpen((prevState) => !prevState);
   };
 
+  const route = useRouter()
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Box sx={{display : "flex" , justifyContent: "space-between" , alignItems: "center", paddingX: "15px"}}>
-      <Box sx={{ my: 2, display: "flex",  alignItems: "center",gap : "5px" }}>
+      <Box sx={{ my: 2, display: "flex",  alignItems: "center",gap : "5px",cursor: "pointer" }} onClick={() => route.push(`./`)} >
         <QrCode2TwoToneIcon/>
         <Typography variant="h6" >
           AbduDev
@@ -61,7 +64,7 @@ const Navbar = ({window} : Props) => {
             >
             <MenuIcon />
             </IconButton>
-            <Box sx={{ alignItems : "center",gap: "5px", my: "2px",flexGrow: 1, display: { xs: 'none', sm: 'flex' }}}>
+            <Box sx={{ alignItems : "center",gap: "5px", my: "2px",flexGrow: 1,cursor: "pointer", display: { xs: 'none', sm: 'flex' }}} onClick={() => route.push(`/`)}>
               <QrCode2TwoToneIcon/>
               <Typography
                 variant="h6"
