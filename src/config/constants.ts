@@ -4,11 +4,11 @@ export const navItems = [
         label : "Home",
     },
     {
-        route : "/categories",
+        route : "/category",
         label : "Categories",
     },
     {
-        route : "/blogs",
+        route : "/blog",
         label : "Blogs",
     }
 

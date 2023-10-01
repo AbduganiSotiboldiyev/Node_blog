@@ -76,7 +76,7 @@ const Navbar = ({window} : Props) => {
             </Box > 
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map((item) => (
-                <Button key={item.route} sx={{ color: '#fff' }}>
+                <Button key={item.route} sx={{ color: '#fff' }} onClick={() => route.push(`/${item.route}`)}>
                   {item.label}
                 </Button>
               ))}
