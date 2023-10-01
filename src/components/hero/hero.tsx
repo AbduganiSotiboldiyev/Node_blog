@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { format } from 'date-fns';
 import { data } from '@/config/data-api';
 import { HeroProps } from './hero.props';
+import { EstimatedTimeToRead } from '@/helpers/time.toread';
 
 
 
@@ -36,7 +37,7 @@ const Hero = ({blogs} : HeroProps) => {
                         <Typography >
                           {item.author.name}
                         </Typography>
-                        <Typography>{format(new Date(item.createdAt), 'dd MMM, yyyy')}</Typography>
+                        <Typography>{format(new Date(item.createdAt), 'dd MMM, yyyy')}  &#x2022; {EstimatedTimeToRead(item.description.text)} min to read</Typography>
                       </Box>
                     </Box>
                   </Box>

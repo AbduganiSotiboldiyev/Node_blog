@@ -5,16 +5,19 @@ export interface BlogsType {
     title: string
     createdAt : string
     image : {
-            url:string
+        url:string
     }
     author : {
-    name:string;
+        name:string;    
     avatar : {
         url:string;
     }
     }
     category: {
-    label:string;
-    slug:string;
+        label:string;
+        slug:string;
+    }
+    description :{
+        text:string;
     }
 }

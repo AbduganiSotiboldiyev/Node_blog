@@ -3,6 +3,7 @@ import {Box,Typography,Avatar,Divider} from "@mui/material"
 import Image from "next/image"
 import {format} from "date-fns"
 import { ContentProps } from "./content.props"
+import { EstimatedTimeToRead } from "@/helpers/time.toread"
 const Content = ({blogs} : ContentProps) => {
   return (
     <Box width={{xs: "100%", sm: "100%"}} >
@@ -18,7 +19,7 @@ const Content = ({blogs} : ContentProps) => {
                 <Avatar src={item.author.avatar.url}></Avatar>
                 <Box sx={{display: "flex", flexDirection:"column"}}>
                   <Typography variant="h6">{item.author.name}</Typography>
-                  <Typography variant="body2" color={"grey"}>{format(new Date(item.createdAt), "dd MMM,yyyy")}</Typography>
+                  <Typography variant="body2" color={"grey"}>{format(new Date(item.createdAt), "dd MMM,yyyy")} &#x2022; {EstimatedTimeToRead(item.description.text)} min to read</Typography>
                 </Box>
             </Box>
         </Box>
