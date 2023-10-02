@@ -6,18 +6,24 @@ import Layout from '@/layout/layout'
 import { GetServerSideProps } from 'next'
 import {DetailedBlogPage} from "@/components"
 import { Box } from '@mui/material'
+import Seo from '@/layout/seo/seo'
+import { useRouter } from 'next/router'
 
 
 
 const DetailedBlog = ({blog, categories,latestBlogs } : DetailedBlogPageProps) => {
+    const route = useRouter()
   return (
-    <Layout>
-        <Box sx={{display: 'flex', flexDirection:{xs: "column",sm :"row"}, gap: "20px " , padding : "20px"}}>
-            <DetailedBlogPage blog={blog}/>
-            <Sidebar latestBlogs= {latestBlogs} categories={categories}/>
-        </Box>
-        
-    </Layout>
+    <Seo metaTitle={blog.title}>
+
+        <Layout>
+            <Box sx={{display: 'flex', flexDirection:{xs: "column",sm :"row"}, gap: "20px " , padding : "20px"}}>
+                <DetailedBlogPage blog={blog}/>
+                <Sidebar latestBlogs= {latestBlogs} categories={categories}/>
+            </Box>
+            
+        </Layout>
+    </Seo>
   )
 }
 

@@ -121,19 +121,23 @@ import { BlogService } from '@/components/services/blog.service'
 import { GetServerSideProps } from 'next'
 import { BlogsType } from '@/components/interface/blogs.interface'
 import { CategoryType } from '@/components/interface/category.interface'
+import Seo from '@/layout/seo/seo'
 
 
 const Index = ({blogs,latestBlogs ,categories}: HomePageProps) => {
   
 
   return (
-    <Layout>
-      <Hero blogs={blogs}/>
-      <Box sx={{display: 'flex', flexDirection:{xs: "column",sm :"row"}, gap: "20px " , padding : "20px"}}>
-        <Sidebar latestBlogs= {latestBlogs} categories={categories}/>
-        <Content blogs={blogs}/>
-      </Box>
-    </Layout>
+    <Seo>
+
+      <Layout>
+        <Hero blogs={blogs}/>
+        <Box sx={{display: 'flex', flexDirection:{xs: "column",sm :"row"}, gap: "20px " , padding : "20px"}}>
+          <Sidebar latestBlogs= {latestBlogs} categories={categories}/>
+          <Content blogs={blogs}/>
+        </Box>
+      </Layout>
+    </Seo>
   )
 }
 

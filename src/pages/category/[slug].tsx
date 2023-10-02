@@ -3,18 +3,24 @@ import { BlogsType } from "@/components/interface/blogs.interface"
 import { CategoryType } from "@/components/interface/category.interface"
 import { BlogService } from "@/components/services/blog.service"
 import Layout from "@/layout/layout"
+import Seo from "@/layout/seo/seo"
 import { Box } from "@mui/material"
 import { GetServerSideProps } from "next"
+import { useRouter } from "next/router"
 
 const CategoryBlogs = ({blogs,latestBlogs,categories} : getCategoryBlogs ) => {
+    const route = useRouter()
   return (
-    <Layout>
-     <Box sx={{display: 'flex', flexDirection:{xs: "column",sm :"row"}, gap: "20px " , padding : "20px"}}>
-        <Sidebar latestBlogs= {latestBlogs} categories={categories}/>
-        <Content blogs={blogs}/>
-      </Box>
+    <Seo metaTitle= {`${route.query.slug}`}>
+        <Layout>
+        <Box sx={{display: 'flex', flexDirection:{xs: "column",sm :"row"}, gap: "20px " , padding : "20px"}}>
+            <Sidebar latestBlogs= {latestBlogs} categories={categories}/>
+            <Content blogs={blogs}/>
+        </Box>
 
-    </Layout>
+        </Layout>
+
+    </Seo>
   )
 }
 
