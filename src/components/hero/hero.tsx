@@ -3,7 +3,6 @@ import { Avatar, Box, Typography } from '@mui/material'
 import Carousel from 'react-multi-carousel';
 import Image from 'next/image';
 import { format } from 'date-fns';
-import { data } from '@/config/site.config';
 import { HeroProps } from './hero.props';
 import { EstimatedTimeToRead } from '@/helpers/time.toread';
 
