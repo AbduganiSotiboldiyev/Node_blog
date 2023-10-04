@@ -1,5 +1,4 @@
 import { navItems } from "@/config/constants"
-import { data } from "@/config/site.config"
 import { Box,Typography,Button, Divider,Avatar } from "@mui/material"
 import format from "date-fns/format"
 import Image from "next/image"
