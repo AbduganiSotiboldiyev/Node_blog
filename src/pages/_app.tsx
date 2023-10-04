@@ -7,6 +7,7 @@ import createEmotionCache from "@/helpers/create-emotion-cache";
 import Head from "next/head";
 import { ThemeProvider } from '@mui/material/styles';
 import theme from "@/helpers/theme";
+import NextProgress from "next-progress";
 
 
 const clientSideEmotionCache = createEmotionCache();
@@ -24,6 +25,7 @@ export default function  MyApp(props: MyAppProps) {
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
+      <NextProgress/>
        <ThemeProvider theme={theme}>
         <CssBaseline />
         
